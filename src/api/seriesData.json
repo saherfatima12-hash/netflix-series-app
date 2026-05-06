@@ -1,0 +1,72 @@
+[
+    {
+        "name" : "STRANGER THINGS",
+        "img" : "Stranger_Things_season_1.jpg",
+       "rating" : 8.7,
+       "stars" : "⭐⭐⭐⭐⭐",
+        "year" : "2016",
+       "duration" : "2h 13m",
+       "summary" :  "A young boy named Will Byers mysteriously disappears in the town of Hawkins. As his friends and family search for him, they encounter a secret government lab and a mysterious girl with ......",
+   "starring" : "Millie Bobby Brown (Eleven), Finn Wolfhard (Mike Wheeler).....",
+   "director" : "The Duffer Brothers",
+   "playbtn": "Play Now",
+    "playlink" : "https://www.netflix.com/title/80057281",
+   "watchbtn" : "Add to Watchlist"
+    },
+   {
+  "name": "SQUID GAME",
+  "img": "squidgame.jpg",
+  "rating": 8.0,
+  "stars" : "⭐⭐⭐⭐⭐",
+  "year": "2021",
+  "duration": "1h per episode",
+  "summary": "Hundreds of cash-strapped players accept a strange invitation to compete in children's games. Inside, a deadly competition awaits with a massive cash prize at stake.",
+  "starring": "Lee Jung-jae (Seong Gi-hun), Park Hae-soo (Cho Sang-woo), Jung Ho-yeon (Kang Sae-byeok)",
+  "director": "Hwang Dong-hyuk",
+  "playbtn": "Play Now",
+  "playlink": "https://www.netflix.com/title/81040344",
+  "watchbtn": "Add to Watchlist"
+},
+{
+  "name": "WEDNESDAY",
+  "img": "wednesday.webp",
+  "rating": 8.1,
+  "stars" : "⭐⭐⭐⭐⭐",
+  "year": "2022",
+  "duration": "45m per episode",
+  "summary": "Follows Wednesday Addams as she attends Nevermore Academy, where she attempts to master her emerging psychic abilities, thwart a killing spree, and solve the mystery that embroiled her parents.",
+  "starring": "Jenna Ortega (Wednesday Addams), Emma Myers (Enid Sinclair), Hunter Doohan (Tyler Galpin)",
+  "director": "Tim Burton",
+  "playbtn": "Play Now",
+  "playlink": "https://www.netflix.com/title/81231974",
+  "watchbtn": "Add to Watchlist"
+},
+{
+  "name": "MONEY HEIST",
+  "img": "moneyheist.jpg",
+  "rating": 8.2,
+  "stars" : "⭐⭐⭐⭐⭐",
+  "year": "2017",
+  "duration": "50m per episode",
+  "summary": "A criminal mastermind known as 'The Professor' plans the biggest heist in recorded history — to print billions of euros in the Royal Mint of Spain, recruiting eight skilled criminals to carry out the plan.",
+  "starring": "Úrsula Corberó (Tokyo), Álvaro Morte (The Professor), Itziar Ituño (Raquel Murillo)",
+  "director": "Álex Pina",
+  "playbtn": "Play Now",
+  "playlink": "https://www.netflix.com/title/80192098",
+  "watchbtn": "Add to Watchlist"
+},
+{
+  "name": "DARK",
+  "img": "dark.jpg",
+  "rating": 8.7,
+  "stars" : "⭐⭐⭐⭐⭐",
+  "year": "2017",
+  "duration": "1h per episode",
+  "summary": "A family saga with a supernatural twist, set in a German town where the disappearance of two children exposes the relationships among four families and a time travel conspiracy spanning generations.",
+  "starring": "Louis Hofmann (Jonas Kahnwald), Lisa Vicari (Martha Nielsen), Maja Schöne (Hannah Kahnwald)",
+  "director": "Baran bo Odar",
+  "playbtn": "Play Now",
+  "playlink": "https://www.netflix.com/title/80100172",
+  "watchbtn": "Add to Watchlist"
+}
+]

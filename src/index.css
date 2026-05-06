@@ -1,0 +1,179 @@
+
+body{
+  font-family:"Playfair Display", serif;
+}
+.bg {
+   position: fixed;   
+  top: 0;
+  left: 0;
+  height : 100vh;
+  width : 100vw;
+  background-image: url("/wallpape2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+ 
+}
+.right_logo {
+  width: 100px;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  filter: brightness(0) invert(1)
+          drop-shadow(0 0 8px white)
+          drop-shadow(0 0 8px white);
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  margin-left: auto;
+  position: absolute;
+  right: 80px;
+  top:230px;
+}
+.right_logo:hover,.left_logo:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
+  
+}
+.left_logo {
+  width: 100px;
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  color :aliceblue;
+  filter: brightness(0) invert(1)
+          drop-shadow(0 0 8px white)
+          drop-shadow(0 0 4px white);
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  margin-right: auto;
+   position: absolute;
+  left: 80px;
+  top: 230px
+}
+
+.black-box {
+  width: 750px;
+  height: 450px;
+  display:flex;
+  background-color: rgb(22, 20, 20);
+  border-radius: 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* 👈 smooth */
+  animation: slideIn 0.4s ease;
+  will-change: transform, opacity;
+  box-shadow: 0 10px 30px rgba(240, 236, 236, 0.6);
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(80px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.black-box:hover {
+  transform: scale(1.02);  /* 👈 slight zoom */
+  box-shadow: 0 10px 30px rgba(253, 252, 252, 0.6); /* 👈 glow */
+}
+.box_image{
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
+ .content{
+   width: 50%;
+  padding: 20px;
+  color: white;
+  overflow-y: auto;  
+  display:flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+  letter-spacing: 2.18px
+ }
+ .Title {
+  font-family:"Playfair Display", serif;
+  font-size: 31px;
+  margin: 0px 0px;
+  letter-spacing: 2.23px;
+  margin-bottom: 8px;
+}
+.row {
+  display: flex;
+  letter-spacing: 0.95px;
+  gap: 15px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.meta {
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+  opacity: 0.8;
+    letter-spacing: -1.05px;
+}
+.Summary {
+  margin-top: 10px;
+  line-height: 1.5;
+  font-size: 15px;
+  font-weight: 100;
+  opacity: 0.9;
+  font-family: "Playfair Display", serif;
+  margin:1px 4px;
+  white-space: normal;
+  text-align: left;
+}
+.starring-row {
+  display: flex;         
+  gap: 8px;
+  align-items: flex-start;
+  margin: 8px 0;
+}
+.label {
+  color: red;
+  font-weight: bold;
+  margin: 0;
+  white-space: nowrap;
+  font-size: 15px;
+}
+.text{
+  font-size: 14px;
+}
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+.play-btn,
+.watch-btn {
+  transition: all 0.3s ease;   
+}
+
+.play-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.play-btn:hover {
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.6);
+  transform: scale(1.05);
+}
+
+
+.watch-btn {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+.watch-btn:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+  transform: scale(1.05);
+}
