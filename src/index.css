@@ -690,14 +690,7 @@ body {
   /* ======================
      BOX RESPONSIVE
   ====================== */
-  .black-box {
-    width: 90%;
-    max-width: 28rem;
-    height: 13rem;
 
-    display: flex;
-    flex-direction: row; /* same design */
-  }
 
   .box_image {
     width: 50%;
@@ -708,6 +701,10 @@ body {
      CONTENT FIX (NO OVERFLOW)
   ====================== */
     .black-box {
+       transform: translateY(-10%);
+       display: flex;
+    flex-direction: row;
+       margin-top: 0;
     width: 88%;
     max-width: 19rem;
     height: 15rem;
@@ -816,7 +813,7 @@ body {
     width: 3rem;
 
     position: absolute;
-    top: 50%;
+    top: 45%;
     transform: translateY(-50%);
   }
 
