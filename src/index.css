@@ -321,7 +321,7 @@ body {
   .black-box {
     width: 90%;
     max-width: 28rem;
-    height: 26rem;
+    height: 13rem;
 
     display: flex;
     flex-direction: row; /* same design */
@@ -335,51 +335,107 @@ body {
   /* ======================
      CONTENT FIX (NO OVERFLOW)
   ====================== */
-  .content {
-    width: 50%;
-    padding: 0.6rem;
+    .black-box {
+    width: 88%;
+    max-width: 19rem;
+    height: 15rem;
 
-    min-width: 0; /* IMPORTANT */
     overflow: hidden;
   }
 
-  /* TEXT SCALE DOWN */
-  .Title {
-    font-size: 1rem;
-    line-height: 1.1;
-    margin-bottom: 0.3rem;
+  .box_image {
+    width: 48%;
+    height: 100%;
+    object-fit: cover;
   }
 
-  .meta {
-    font-size: 0.65rem;
+  .content {
+    width: 52%;
+
+    padding: 0.45rem;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    letter-spacing: normal;
+  }
+   .row {
     gap: 0.3rem;
+
+    margin-bottom: 0.2rem;
+
+    flex-wrap: wrap;
   }
 
+  .Star {
+    font-size: 0.55rem;
+
+    line-height: 1;
+  }
+
+  /* TITLE */
+  .Title {
+    font-size: 0.72rem;
+
+    line-height: 1;
+
+    margin-bottom: 0.15rem;
+
+    letter-spacing: 0.02rem;
+  }
+
+  /* META */
+  .meta {
+    font-size: 0.5rem;
+
+    gap: 0.2rem;
+
+    flex-wrap: wrap;
+  }
+
+  /* SUMMARY */
   .Summary {
-    font-size: 0.65rem;
-    line-height: 1.2;
+    font-size: 0.5rem;
+
+    line-height: 1.05;
+
+    margin-top: 0.15rem;
+
+    overflow-wrap: break-word;
 
     word-break: break-word;
-    overflow-wrap: break-word;
   }
 
+  /* LABELS */
   .label,
   .text {
-    font-size: 0.62rem;
+    font-size: 0.5rem;
+
+    line-height: 1;
+  }
+
+  .starring-row {
+    gap: 0.2rem;
+
+    margin: 0.2rem 0;
   }
 
   /* BUTTONS */
   .buttons {
-    margin-top: 0.4rem;
-    gap: 0.4rem;
+    gap: 0.25rem;
+
+    margin-top: 0.25rem;
+
+    flex-wrap: wrap;
   }
 
   .play-btn,
   .watch-btn {
-    padding: 0.35rem 0.55rem;
-    font-size: 0.6rem;
-  }
+    padding: 0.22rem 0.38rem;
 
+    font-size: 0.45rem;
+  }
   /* ======================
      ARROWS FIX (SIDE POSITION)
   ====================== */
