@@ -1,71 +1,112 @@
-
-body{
-  font-family:"Playfair Display", serif;
+body {
+  margin: 0;
+  font-family: "Playfair Display", serif;
 }
+
+/* =========================
+   BACKGROUND
+========================= */
+
 .bg {
-   position: fixed;   
-  top: 0;
-  left: 0;
-  height : 100vh;
-  width : 100vw;
+  position: fixed;
+  inset: 0;
+
+  width: 100vw;
+  height: 100vh;
+
   background-image: url("/wallpape2.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  display:flex;
+
+  display: flex;
   justify-content: center;
   align-items: center;
- 
-}
-.right_logo {
-  width: 100px;
-  cursor: pointer;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  filter: brightness(0) invert(1)
-          drop-shadow(0 0 8px white)
-          drop-shadow(0 0 8px white);
-  opacity: 0.9;
-  transition: all 0.3s ease;
-  margin-left: auto;
-  position: absolute;
-  right: 80px;
-  top:230px;
-}
-.right_logo:hover,.left_logo:hover {
-  transform: scale(1.1);
-  opacity: 0.7;
-  
-}
-.left_logo {
-  width: 100px;
-  cursor: pointer;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  color :aliceblue;
-  filter: brightness(0) invert(1)
-          drop-shadow(0 0 8px white)
-          drop-shadow(0 0 4px white);
-  opacity: 0.9;
-  transition: all 0.3s ease;
-  margin-right: auto;
-   position: absolute;
-  left: 80px;
-  top: 230px
+
+  overflow: hidden;
 }
 
-.black-box {
-  width: 750px;
-  height: 450px;
-  display:flex;
-  background-color: rgb(22, 20, 20);
-  border-radius: 5px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* 👈 smooth */
-  animation: slideIn 0.4s ease;
-  will-change: transform, opacity;
-  box-shadow: 0 10px 30px rgba(240, 236, 236, 0.6);
+/* =========================
+   ARROWS
+========================= */
+
+.right_logo,
+.left_logo {
+  width: clamp(3rem, 6vw, 6.25rem);
+
+  cursor: pointer;
+
+  position: absolute;
+
+  top: 45%;
+
+  z-index: 10;
+
+  opacity: 0.9;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+
+  filter:
+    brightness(0)
+    invert(1)
+    drop-shadow(0 0 0.5rem white)
+    drop-shadow(0 0 0.5rem white);
 }
+
+.right_logo {
+  right: 4%;
+}
+
+.left_logo {
+  left: 4%;
+}
+
+.right_logo:hover,
+.left_logo:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.black-box {
+  width: min(90%, 46.875rem);
+
+  height: min(80vh, 28.125rem);
+
+  display: flex;
+
+  background-color: rgb(22, 20, 20);
+
+  border-radius: 0.3125rem;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  animation: slideIn 0.4s ease;
+
+  will-change: transform, opacity;
+
+  box-shadow:
+    0 0.625rem 1.875rem
+    rgba(240, 236, 236, 0.6);
+
+  overflow: hidden;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
 @keyframes slideIn {
+
   0% {
-    transform: translateX(80px);
+    transform: translateX(5rem);
     opacity: 0;
   }
 
@@ -74,106 +115,288 @@ body{
     opacity: 1;
   }
 }
+
 .black-box:hover {
-  transform: scale(1.02);  /* 👈 slight zoom */
-  box-shadow: 0 10px 30px rgba(253, 252, 252, 0.6); /* 👈 glow */
+  transform: scale(1.02);
+
+  box-shadow:
+    0 0.625rem 1.875rem
+    rgba(253, 252, 252, 0.6);
 }
-.box_image{
+
+/* =========================
+   IMAGE
+========================= */
+
+.box_image {
   width: 50%;
   height: 100%;
+
   object-fit: cover;
 }
- .content{
-   width: 50%;
-  padding: 20px;
+
+/* =========================
+   CONTENT
+========================= */
+
+.content {
+  width: 50%;
+  padding: 1.25rem;
   color: white;
-  overflow-y: auto;  
-  display:flex;
+
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
-  overflow: hidden;
-  letter-spacing: 2.18px
- }
- .Title {
-  font-family:"Playfair Display", serif;
-  font-size: 31px;
-  margin: 0px 0px;
-  letter-spacing: 2.23px;
-  margin-bottom: 8px;
+
+  overflow: visible; /* ❌ hidden hatao */
+  min-width: 0;      /* 🔥 VERY IMPORTANT for flex text */
+
+  letter-spacing: 0.136rem;
 }
+
+/* =========================
+   TITLE
+========================= */
+
+.Title {
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(1.2rem, 2vw, 1.9375rem);
+
+  margin: 0 0 0.5rem 0;
+
+  letter-spacing: 0.14rem;
+}
+
+/* =========================
+   ROW
+========================= */
+
 .row {
   display: flex;
-  letter-spacing: 0.95px;
-  gap: 15px;
+
   align-items: center;
-  margin-bottom: 8px;
+
+  gap: 0.94rem;
+
+  margin-bottom: 0.5rem;
+
+  letter-spacing: 0.06rem;
 }
+
+/* =========================
+   META
+========================= */
+
 .meta {
   display: flex;
-  gap: 10px;
-  font-size: 14px;
+
+  gap: 0.625rem;
+
+  font-size: clamp(0.7rem, 1vw, 0.875rem);
+
   opacity: 0.8;
-    letter-spacing: -1.05px;
+
+  letter-spacing: -0.065rem;
 }
+
+/* =========================
+   SUMMARY
+========================= */
+
 .Summary {
-  margin-top: 10px;
+  margin-top: 0.625rem;
+
   line-height: 1.5;
-  font-size: 15px;
+
+  font-size: clamp(0.72rem, 1.1vw, 0.9375rem);
+
   font-weight: 100;
+
   opacity: 0.9;
-  font-family: "Playfair Display", serif;
-  margin:1px 4px;
+
+  margin-inline: 0.25rem;
+
   white-space: normal;
+
   text-align: left;
 }
+
+/* =========================
+   STARRING
+========================= */
+
 .starring-row {
-  display: flex;         
-  gap: 8px;
+  display: flex;
+
+  gap: 0.5rem;
+
   align-items: flex-start;
-  margin: 8px 0;
+
+  margin: 0.5rem 0;
 }
+
 .label {
   color: red;
+
   font-weight: bold;
+
   margin: 0;
+
   white-space: nowrap;
-  font-size: 15px;
+
+  font-size: clamp(0.72rem, 1vw, 0.9375rem);
 }
-.text{
-  font-size: 14px;
+
+.text {
+  font-size: clamp(0.7rem, 1vw, 0.875rem);
 }
+
+/* =========================
+   BUTTONS
+========================= */
+
 .buttons {
   display: flex;
-  gap: 10px;
-  margin-top: 15px;
+
+  gap: 0.625rem;
+
+  margin-top: 0.94rem;
 }
+
 .play-btn,
 .watch-btn {
-  transition: all 0.3s ease;   
+  transition: all 0.3s ease;
+
+  cursor: pointer;
+
+  border: none;
+
+  font-size: clamp(0.7rem, 1vw, 0.9rem);
+
+  padding: 0.5rem 0.94rem;
 }
 
 .play-btn {
   background-color: red;
   color: white;
-  border: none;
-  padding: 8px 15px;
-  cursor: pointer;
+
   font-weight: bold;
 }
-.play-btn:hover {
-  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.6);
-  transform: scale(1.05);
-}
-
 
 .watch-btn {
   background-color: #333;
   color: white;
-  border: none;
-  padding: 8px 15px;
-  cursor: pointer;
 }
-.watch-btn:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+
+.play-btn:hover {
+  box-shadow:
+    0 0.3rem 0.94rem
+    rgba(255, 0, 0, 0.6);
+
   transform: scale(1.05);
+}
+
+.watch-btn:hover {
+  box-shadow:
+    0 0.3rem 0.94rem
+    rgba(0, 0, 0, 0.6);
+
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+
+  /* ======================
+     BG SAFE PADDING
+  ====================== */
+  .bg {
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  /* ======================
+     BOX RESPONSIVE
+  ====================== */
+  .black-box {
+    width: 90%;
+    max-width: 28rem;
+    height: 26rem;
+
+    display: flex;
+    flex-direction: row; /* same design */
+  }
+
+  .box_image {
+    width: 50%;
+    height: 100%;
+  }
+
+  /* ======================
+     CONTENT FIX (NO OVERFLOW)
+  ====================== */
+  .content {
+    width: 50%;
+    padding: 0.6rem;
+
+    min-width: 0; /* IMPORTANT */
+    overflow: hidden;
+  }
+
+  /* TEXT SCALE DOWN */
+  .Title {
+    font-size: 1rem;
+    line-height: 1.1;
+    margin-bottom: 0.3rem;
+  }
+
+  .meta {
+    font-size: 0.65rem;
+    gap: 0.3rem;
+  }
+
+  .Summary {
+    font-size: 0.65rem;
+    line-height: 1.2;
+
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .label,
+  .text {
+    font-size: 0.62rem;
+  }
+
+  /* BUTTONS */
+  .buttons {
+    margin-top: 0.4rem;
+    gap: 0.4rem;
+  }
+
+  .play-btn,
+  .watch-btn {
+    padding: 0.35rem 0.55rem;
+    font-size: 0.6rem;
+  }
+
+  /* ======================
+     ARROWS FIX (SIDE POSITION)
+  ====================== */
+  .right_logo,
+  .left_logo {
+    width: 3rem;
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .left_logo {
+    left: -0.7rem;
+  }
+
+  .right_logo {
+    right: -0.7rem;
+  }
 }
