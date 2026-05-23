@@ -1,6 +1,7 @@
  import { useState } from "react";
  import seriesData from "../api/seriesData.json";
 import SeriesCard from "./SeriesCard";
+import styles from "./Netflix.module.css";
 
  const NetflixSeries = () => {
   const [index,setIndex] = useState(0);
@@ -20,12 +21,12 @@ import SeriesCard from "./SeriesCard";
   };
 
   return(
-   <div className = "bg">
+   <div className = {styles.bg}>
     
     { index > 0 && (
       <img
       src="rewind.png"
-      className="left_logo"
+      className={styles["left_logo"]}
       onClick={prev}/>
     )}
      <SeriesCard key = {index} {...series} />
@@ -33,7 +34,7 @@ import SeriesCard from "./SeriesCard";
       {index < seriesData.length-1 && (
     <img
   src="forward.png"
-  className="right_logo"
+  className={styles["right_logo"]}
   onClick={next}
   />
       )}

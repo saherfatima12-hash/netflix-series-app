@@ -1,10 +1,11 @@
 /* =========================
-   SMOOTH BACKGROUND ZOOM
+   BACKGROUND ZOOM
 ========================= */
+@import "tailwindcss";
+
 
 .bg::before {
   content: "";
-
   position: absolute;
   inset: 0;
 
@@ -19,82 +20,97 @@
 }
 
 @keyframes bgZoom {
-
-  0% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(1.08);
-  }
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
 }
 
 /* =========================
-   CARD FLOATING EFFECT
+   MAIN CARD
 ========================= */
 
 .black-box {
-  animation:
-    slideIn 0.5s ease,
-    floating 4s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+
+  animation: floatingGlow 3s ease-in-out infinite;
 }
 
-@keyframes floating {
+/* =========================
+   SHINE EFFECT (FIXED)
+========================= */
 
+.black-box::before {
+  content: "";
+
+  position: absolute;
+  top: -150%;
+  left: -50%;
+
+  width: 40%;
+  height: 400%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+
+  transform: rotate(25deg);
+
+  animation: shineMove 3s linear infinite;
+
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* SHINE ANIMATION */
+@keyframes shineMove {
+  0% { left: -60%; }
+  100% { left: 140%; }
+}
+
+/* =========================
+   FLOATING GLOW
+========================= */
+
+@keyframes floatingGlow {
   0% {
-    transform: translateY(0rem);
+    transform: scale(1);
+    box-shadow: 0 0 0.8rem rgba(255,255,255,0.15);
   }
 
   50% {
-    transform: translateY(-0.4rem);
+    transform: scale(1.02);
+    box-shadow: 0 0 2rem rgba(255,255,255,0.3);
   }
 
   100% {
-    transform: translateY(0rem);
+    transform: scale(1);
+    box-shadow: 0 0 0.8rem rgba(255,255,255,0.15);
   }
 }
 
 /* =========================
-   PREMIUM CARD HOVER
+   HOVER EFFECTS
 ========================= */
 
 .black-box:hover {
-
-  transform:
-    scale(1.03)
-    rotateX(2deg)
-    rotateY(-2deg);
-
-  box-shadow:
-    0 1rem 2.5rem rgba(255,255,255,0.25),
-    0 0 2rem rgba(255,255,255,0.15);
-
-  transition:
-    transform 0.4s ease,
-    box-shadow 0.4s ease;
+  transform: scale(1.03) rotateX(2deg) rotateY(-2deg);
+  transition: 0.4s ease;
 }
 
-/* =========================
-   IMAGE CINEMATIC EFFECT
-========================= */
-
 .box_image {
-  transition:
-    transform 0.5s ease,
-    filter 0.5s ease;
+  transition: 0.5s ease;
 }
 
 .black-box:hover .box_image {
-
   transform: scale(1.06);
-
-  filter:
-    brightness(1.08)
-    contrast(1.08);
+  filter: brightness(1.1) contrast(1.1);
 }
 
 /* =========================
-   CONTENT FADE
+   TEXT FADE
 ========================= */
 
 .content > * {
@@ -102,12 +118,10 @@
 }
 
 @keyframes contentFade {
-
   0% {
     opacity: 0;
     transform: translateY(1rem);
   }
-
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -119,22 +133,16 @@
 ========================= */
 
 .Title {
-  transition:
-    color 0.3s ease,
-    text-shadow 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .black-box:hover .Title {
-
-  color: #ffffff;
-
-  text-shadow:
-    0 0 0.5rem rgba(255,255,255,0.8),
-    0 0 1rem rgba(255,255,255,0.5);
+  color: white;
+  text-shadow: 0 0 10px rgba(255,255,255,0.6);
 }
 
 /* =========================
-   BUTTON PREMIUM EFFECT
+   BUTTON SHINE
 ========================= */
 
 .play-btn,
@@ -145,24 +153,20 @@
 
 .play-btn::before,
 .watch-btn::before {
-
   content: "";
-
   position: absolute;
 
   top: 0;
   left: -120%;
-
   width: 100%;
   height: 100%;
 
-  background:
-    linear-gradient(
-      120deg,
-      transparent,
-      rgba(255,255,255,0.35),
-      transparent
-    );
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.3),
+    transparent
+  );
 
   transition: 0.6s;
 }
@@ -173,7 +177,7 @@
 }
 
 /* =========================
-   ARROW ANIMATION
+   ARROWS
 ========================= */
 
 .right_logo,
@@ -182,133 +186,13 @@
 }
 
 @keyframes arrowPulse {
-
-  0% {
-    transform: translateY(-50%) scale(1);
-  }
-
-  50% {
-    transform: translateY(-50%) scale(1.08);
-  }
-
-  100% {
-    transform: translateY(-50%) scale(1);
-  }
-}
-
-.right_logo:hover,
-.left_logo:hover {
-
-  transform:
-    translateY(-50%)
-    scale(1.15);
-
-  filter:
-    brightness(0)
-    invert(1)
-    drop-shadow(0 0 1rem white)
-    drop-shadow(0 0 1.5rem white);
-}
-/* =========================
-   SHINING BORDER EFFECT
-========================= */
-
-.black-box {
-  position: relative;
-
-  overflow: hidden;
-
-  animation:
-    slideIn 0.5s ease,
-    floatingGlow 3s ease-in-out infinite;
+  0% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-50%) scale(1.08); }
+  100% { transform: translateY(-50%) scale(1); }
 }
 
 /* =========================
-   OUTSIDE GLOW PULSE
-========================= */
-
-@keyframes floatingGlow {
-
-  0% {
-    transform: scale(1);
-
-    box-shadow:
-      0 0 0.8rem rgba(255,255,255,0.15),
-      0 0 1.5rem rgba(255,255,255,0.08);
-  }
-
-  50% {
-    transform: scale(1.025);
-
-    box-shadow:
-      0 0 1.5rem rgba(255,255,255,0.4),
-      0 0 3rem rgba(255,255,255,0.2);
-  }
-
-  100% {
-    transform: scale(1);
-
-    box-shadow:
-      0 0 0.8rem rgba(255,255,255,0.15),
-      0 0 1.5rem rgba(255,255,255,0.08);
-  }
-}
-
-/* =========================
-   MOVING SHINE
-========================= */
-
-.black-box::before {
-
-  content: "";
-
-  position: absolute;
-
-  top: -150%;
-  left: -50%;
-
-  width: 40%;
-  height: 400%;
-
-  background:
-    linear-gradient(
-      120deg,
-      transparent,
-      rgba(255,255,255,0.4),
-      transparent
-    );
-
-  transform: rotate(25deg);
-
-  animation: shineMove 3s linear infinite;
-}
-
-/* =========================
-   SHINE ANIMATION
-========================= */
-
-@keyframes shineMove {
-
-  0% {
-    left: -60%;
-  }
-
-  100% {
-    left: 140%;
-  }
-}
-/* =========================
-   ARROW BASE PREMIUM STYLE
-========================= */
-
-.left_logo,
-.right_logo {
-  transition: all 0.35s ease;
-  will-change: transform, filter;
-}
-
-/* =========================
-   SOFT FLOATING MOTION
+   FLOAT ARROWS
 ========================= */
 
 .left_logo {
@@ -320,508 +204,26 @@
 }
 
 @keyframes leftFloat {
-  0%, 100% {
-    transform: translateY(-50%) translateX(0);
-  }
-
-  50% {
-    transform: translateY(-50%) translateX(-0.4rem);
-  }
+  0%,100% { transform: translateY(-50%) translateX(0); }
+  50% { transform: translateY(-50%) translateX(-0.4rem); }
 }
 
 @keyframes rightFloat {
-  0%, 100% {
-    transform: translateY(-50%) translateX(0);
-  }
-
-  50% {
-    transform: translateY(-50%) translateX(0.4rem);
-  }
+  0%,100% { transform: translateY(-50%) translateX(0); }
+  50% { transform: translateY(-50%) translateX(0.4rem); }
 }
-
-/* =========================
-   HOVER PREMIUM GLOW
-========================= */
 
 .left_logo:hover,
 .right_logo:hover {
-
   transform: translateY(-50%) scale(1.2);
-
-  filter:
-    brightness(0)
-    invert(1)
-    drop-shadow(0 0 1rem white)
-    drop-shadow(0 0 2rem rgba(255,255,255,0.6));
-
-  animation: none; /* hover pe float stop */
+  filter: brightness(0) invert(1);
 }
 
 /* =========================
-   CLICK PRESS EFFECT
+   BODY
 ========================= */
-
-.left_logo:active,
-.right_logo:active {
-
-  transform: translateY(-50%) scale(0.9);
-
-  transition: transform 0.1s ease;
-}
-
 
 body {
   margin: 0;
   font-family: "Playfair Display", serif;
-}
-
-/* =========================
-   BACKGROUND
-========================= */
-
-.bg {
-  position: fixed;
-  inset: 0;
-
-  width: 100vw;
-  height: 100vh;
-
-  background-image: url("/wallpape2.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  overflow: hidden;
-}
-
-/* =========================
-   ARROWS
-========================= */
-
-.right_logo,
-.left_logo {
-  width: clamp(3rem, 6vw, 6.25rem);
-
-  cursor: pointer;
-
-  position: absolute;
-
-  top: 45%;
-
-  z-index: 10;
-
-  opacity: 0.9;
-
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
-
-  filter:
-    brightness(0)
-    invert(1)
-    drop-shadow(0 0 0.5rem white)
-    drop-shadow(0 0 0.5rem white);
-}
-
-.right_logo {
-  right: 4%;
-}
-
-.left_logo {
-  left: 4%;
-}
-
-.right_logo:hover,
-.left_logo:hover {
-  transform: scale(1.1);
-  opacity: 0.7;
-}
-
-/* =========================
-   MAIN CARD
-========================= */
-
-.black-box {
-  width: min(90%, 46.875rem);
-
-  height: min(80vh, 28.125rem);
-
-  display: flex;
-
-  background-color: rgb(22, 20, 20);
-
-  border-radius: 0.3125rem;
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-
-  animation: slideIn 0.4s ease;
-
-  will-change: transform, opacity;
-
-  box-shadow:
-    0 0.625rem 1.875rem
-    rgba(240, 236, 236, 0.6);
-
-  overflow: hidden;
-}
-
-/* =========================
-   ANIMATION
-========================= */
-
-@keyframes slideIn {
-
-  0% {
-    transform: translateX(5rem);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.black-box:hover {
-  transform: scale(1.02);
-
-  box-shadow:
-    0 0.625rem 1.875rem
-    rgba(253, 252, 252, 0.6);
-}
-
-/* =========================
-   IMAGE
-========================= */
-
-.box_image {
-  width: 50%;
-  height: 100%;
-
-  object-fit: cover;
-}
-
-/* =========================
-   CONTENT
-========================= */
-
-.content {
-  width: 50%;
-  padding: 1.25rem;
-  color: white;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  overflow: visible; /* ❌ hidden hatao */
-  min-width: 0;      /* 🔥 VERY IMPORTANT for flex text */
-
-  letter-spacing: 0.136rem;
-}
-
-/* =========================
-   TITLE
-========================= */
-
-.Title {
-  font-family: "Playfair Display", serif;
-
-  font-size: clamp(1.2rem, 2vw, 1.9375rem);
-
-  margin: 0 0 0.5rem 0;
-
-  letter-spacing: 0.14rem;
-}
-
-/* =========================
-   ROW
-========================= */
-
-.row {
-  display: flex;
-
-  align-items: center;
-
-  gap: 0.94rem;
-
-  margin-bottom: 0.5rem;
-
-  letter-spacing: 0.06rem;
-}
-
-/* =========================
-   META
-========================= */
-
-.meta {
-  display: flex;
-
-  gap: 0.625rem;
-
-  font-size: clamp(0.7rem, 1vw, 0.875rem);
-
-  opacity: 0.8;
-
-  letter-spacing: -0.065rem;
-}
-
-/* =========================
-   SUMMARY
-========================= */
-
-.Summary {
-  margin-top: 0.625rem;
-
-  line-height: 1.5;
-
-  font-size: clamp(0.72rem, 1.1vw, 0.9375rem);
-
-  font-weight: 100;
-
-  opacity: 0.9;
-
-  margin-inline: 0.25rem;
-
-  white-space: normal;
-
-  text-align: left;
-}
-
-/* =========================
-   STARRING
-========================= */
-
-.starring-row {
-  display: flex;
-
-  gap: 0.5rem;
-
-  align-items: flex-start;
-
-  margin: 0.5rem 0;
-}
-
-.label {
-  color: red;
-
-  font-weight: bold;
-
-  margin: 0;
-
-  white-space: nowrap;
-
-  font-size: clamp(0.72rem, 1vw, 0.9375rem);
-}
-
-.text {
-  font-size: clamp(0.7rem, 1vw, 0.875rem);
-}
-
-/* =========================
-   BUTTONS
-========================= */
-
-.buttons {
-  display: flex;
-
-  gap: 0.625rem;
-
-  margin-top: 0.94rem;
-}
-
-.play-btn,
-.watch-btn {
-  transition: all 0.3s ease;
-
-  cursor: pointer;
-
-  border: none;
-
-  font-size: clamp(0.7rem, 1vw, 0.9rem);
-
-  padding: 0.5rem 0.94rem;
-}
-
-.play-btn {
-  background-color: red;
-  color: white;
-
-  font-weight: bold;
-}
-
-.watch-btn {
-  background-color: #333;
-  color: white;
-}
-
-.play-btn:hover {
-  box-shadow:
-    0 0.3rem 0.94rem
-    rgba(255, 0, 0, 0.6);
-
-  transform: scale(1.05);
-}
-
-.watch-btn:hover {
-  box-shadow:
-    0 0.3rem 0.94rem
-    rgba(0, 0, 0, 0.6);
-
-  transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-
-  /* ======================
-     BG SAFE PADDING
-  ====================== */
-  .bg {
-    padding: 1rem;
-    box-sizing: border-box;
-  }
-
-  /* ======================
-     BOX RESPONSIVE
-  ====================== */
-
-
-  .box_image {
-    width: 50%;
-    height: 100%;
-  }
-
-  /* ======================
-     CONTENT FIX (NO OVERFLOW)
-  ====================== */
-    .black-box {
-       transform: translateY(-10%);
-       display: flex;
-    flex-direction: row;
-       margin-top: 0;
-    width: 88%;
-    max-width: 19rem;
-    height: 15rem;
-
-    overflow: hidden;
-  }
-
-  .box_image {
-    width: 48%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .content {
-    width: 52%;
-
-    padding: 0.45rem;
-
-    min-width: 0;
-
-    overflow: hidden;
-
-    letter-spacing: normal;
-  }
-   .row {
-    gap: 0.3rem;
-
-    margin-bottom: 0.2rem;
-
-    flex-wrap: wrap;
-  }
-
-  .Star {
-    font-size: 0.55rem;
-
-    line-height: 1;
-  }
-
-  /* TITLE */
-  .Title {
-    font-size: 0.72rem;
-
-    line-height: 1;
-
-    margin-bottom: 0.15rem;
-
-    letter-spacing: 0.02rem;
-  }
-
-  /* META */
-  .meta {
-    font-size: 0.5rem;
-
-    gap: 0.2rem;
-
-    flex-wrap: wrap;
-  }
-
-  /* SUMMARY */
-  .Summary {
-    font-size: 0.5rem;
-
-    line-height: 1.05;
-
-    margin-top: 0.15rem;
-
-    overflow-wrap: break-word;
-
-    word-break: break-word;
-  }
-
-  /* LABELS */
-  .label,
-  .text {
-    font-size: 0.5rem;
-
-    line-height: 1;
-  }
-
-  .starring-row {
-    gap: 0.2rem;
-
-    margin: 0.2rem 0;
-  }
-
-  /* BUTTONS */
-  .buttons {
-    gap: 0.25rem;
-
-    margin-top: 0.25rem;
-
-    flex-wrap: wrap;
-  }
-
-  .play-btn,
-  .watch-btn {
-    padding: 0.22rem 0.38rem;
-
-    font-size: 0.45rem;
-  }
-  /* ======================
-     ARROWS FIX (SIDE POSITION)
-  ====================== */
-  .right_logo,
-  .left_logo {
-    width: 3rem;
-
-    position: absolute;
-    top: 45%;
-    transform: translateY(-50%);
-  }
-
-  .left_logo {
-    left: -0.7rem;
-  }
-
-  .right_logo {
-    right: -0.7rem;
-  }
 }
